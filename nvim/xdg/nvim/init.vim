@@ -121,7 +121,7 @@ call dein#add('Xuyuanp/nerdtree-git-plugin')
 call dein#add('jistr/vim-nerdtree-tabs')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-" call dein#add('Valloric/YouCompleteMe', {'build': './install.py --clang-completer --system-libclang'})
+call dein#add('Valloric/YouCompleteMe', {'build': './install.py --clang-completer --system-libclang'})
 call dein#add('Raimondi/delimitMate')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('terryma/vim-multiple-cursors')
@@ -171,7 +171,7 @@ let g:ctrlp_custom_ignore = {
 
 " use NT instead of vim tree when vim is started without file
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Autoclose vim if nerdtree is the last window opened
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
