@@ -110,8 +110,8 @@ autocmd InsertEnter * set cursorline
 
 filetype off
 
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-call dein#begin(expand('~/.vim/dein'))
+set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+call dein#begin(expand('~/.config/nvim/dein'))
 
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
