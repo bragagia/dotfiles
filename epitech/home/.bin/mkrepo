@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+echo -n "Password: "
+read -s PASS
+echo
+PASS=`echo -n $PASS | sha512sum | cut -f1 -d ' '`
+
+blih -u mathias.bragagia@epitech.eu -t $PASS repository create $1
+blih -u mathias.bragagia@epitech.eu -t $PASS repository setacl $1 ramassage-tek r
+blih -u mathias.bragagia@epitech.eu -t $PASS repository setacl $1 rush r
+
+echo
+
+blih -u mathias.bragagia@epitech.eu -t $PASS repository getacl $1 
+
+echo
+echo "-------"
+echo
+
+git clone git@git.epitech.eu:/bragag_m/"$1"
+
+cp -Tr "$HOME"/.config/epitech-repo/ "$1"
