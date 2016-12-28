@@ -111,8 +111,11 @@ alias cou='docker-compose up'
 alias cos='docker-compose start'
 alias cor='docker-compose restart'
 alias cop='docker-compose stop'
+alias sudo='sudo '
 
 alias pap='passeport'
+
+alias postman='/usr/bin/chromium --profile-directory=Default --app-id=fhbjgbiflinjbdggehcddcbncdddomop'
 
 export PAGER=most
 export EDITOR=nvim
