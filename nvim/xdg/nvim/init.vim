@@ -37,16 +37,23 @@ set tabstop=2
 set timeoutlen=30 ttimeoutlen=0
 
 " Ctrl+Arrow to switch buffer
-nmap <c-h> :bp<CR>
-nmap <c-l> :bn<CR>
-imap <c-h> :bp<CR>
-imap <c-l> :bn<CR>
+nnoremap <c-h> :bp<CR>
+nnoremap <c-l> :bn<CR>
+inoremap <c-h> :bp<CR>
+inoremap <c-l> :bn<CR>
+tnoremap <c-h> :bp<CR>
+tnoremap <c-l> :bn<CR>
 
 " Alt+Arrow to switch window
-nmap <A-k> :wincmd k<CR>
-nmap <A-j> :wincmd j<CR>
-nmap <A-h> :wincmd h<CR>
-nmap <A-l> :wincmd l<CR>
+nnoremap <A-k> :wincmd k<CR>
+nnoremap <A-j> :wincmd j<CR>
+nnoremap <A-h> :wincmd h<CR>
+nnoremap <A-l> :wincmd l<CR>
+tnoremap <A-k> <C-\><C-n>:wincmd k<CR>
+tnoremap <A-j> <C-\><C-n>:wincmd j<CR>
+tnoremap <A-h> <C-\><C-n>:wincmd h<CR>
+tnoremap <A-l> <C-\><C-n>:wincmd l<CR>
+
 
 " Map leader to print key
 nmap [29~ <leader>
