@@ -56,7 +56,7 @@ zstyle ':completion:*' rehash true
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/kanak/.bin:/home/kanak/.bin/"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/kanak/.bin:/home/kanak/.bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,6 +86,34 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+wwd()
+{
+	cd `cat ~/.wd`
+}
+
+wwd_zle()
+{
+	wwd
+	zle reset-prompt
+}
+
+swd()
+{
+	echo -n "$PWD" > ~/.wd
+}
+
+swd_zle()
+{
+	swd
+	zle reset-prompt
+}
+
+cd_zle()
+{
+	cd
+	zle reset-prompt
+}
+
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -104,7 +132,8 @@ alias halt='systemctl poweroff'
 alias reboot='systemctl reboot'
 alias suspend='systemctl suspend'
 alias ':q'='exit'
-alias wwd='cd `cat ~/.wd`'
+
+#alias wwd=''
 
 alias co='docker-compose'
 alias cou='docker-compose up'
@@ -112,7 +141,6 @@ alias cos='docker-compose start'
 alias cor='docker-compose restart'
 alias cop='docker-compose stop'
 alias sudo='sudo '
-
 alias pap='passeport'
 
 alias postman='/usr/bin/chromium --profile-directory=Default --app-id=fhbjgbiflinjbdggehcddcbncdddomop'
@@ -120,3 +148,12 @@ alias postman='/usr/bin/chromium --profile-directory=Default --app-id=fhbjgbifli
 export PAGER=most
 export EDITOR=nvim
 export PATH=$PATH":/home/kanak/.bin/"
+
+zle -N wwd_zle
+bindkey '^W' wwd_zle
+
+zle -N swd_zle
+bindkey '^S' swd_zle
+
+zle -N cd_zle
+bindkey '^X' cd_zle
