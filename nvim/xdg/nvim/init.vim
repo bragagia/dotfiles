@@ -167,7 +167,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 let g:ctrlp_custom_ignore = {
-			\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+			\ 'dir':  '\v[\/](tsbuild|node_modules|\.(git|hg|svn))$',
 			\ 'file': '\v(\.d|\.o|\.swp|\~)$',
 			\ 'link': 'some_bad_symbolic_links',
 			\ }
