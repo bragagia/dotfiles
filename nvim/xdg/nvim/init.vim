@@ -169,6 +169,7 @@ call dein#add('ryanoasis/vim-devicons')
 call dein#add('chilicuil/vim-sprunge')
 call dein#add('Quramy/tsuquyomi')
 call dein#add('leafgarland/typescript-vim')
+call dein#add('dsimidzija/vim-nerdtree-ignore')
 
 call dein#end()
 filetype plugin indent on
