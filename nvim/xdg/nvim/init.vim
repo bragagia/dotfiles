@@ -111,6 +111,22 @@ autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('
 autocmd InsertLeave * set nocursorline
 autocmd InsertEnter * set cursorline
 
+" Better QuickFix window height
+au FileType qf call AdjustWindowHeight(3, 10)
+function! AdjustWindowHeight(minheight, maxheight)
+	let l = 1
+	let n_lines = 0
+	let w_width = winwidth(0)
+	while l <= line('$')
+		" number to float for division
+		let l_len = strlen(getline(l)) + 0.0
+		let line_width = l_len/w_width
+		let n_lines += float2nr(ceil(line_width))
+		let l += 1
+	endw
+	exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+
 """""
 " Dein
 """""
@@ -275,13 +291,22 @@ autocmd VimEnter * AirlineTheme wombat
 " YouCompleteMe
 """""
 
+" Use tab for semantic completion
+let g:ycm_key_invoke_completion = '<TAB>'
+
 " Close description window after completion
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 let g:ycm_extra_conf_globlist = [ '~/Documents/Epitech/*' ]
 
+" Identifier completion start with 1 char
+let g:ycm_min_num_of_chars_for_completion = 1
+
+" Adds langage keyword to identifier completer
+let g:ycm_seed_identifiers_with_syntax = 1
+
 " Use working directory of vim for path completion
-let g:ycm_filepath_completion_use_working_dir = 1
+"let g:ycm_filepath_completion_use_working_dir = 1
 
 " Better error highlight
 highlight YcmErrorSign ctermfg=red
@@ -314,7 +339,7 @@ omap / <Plug>(easymotion-tn)
 " Magit
 """""
 
-nmap  :Magit<CR>
+nnoremap  :Magit<CR>
 
 """""
 " GitGutter
