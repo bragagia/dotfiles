@@ -1,2 +1,3 @@
 xmodmap ~/.swapper
 redshift -l 48.573392:7.752353 -t 6500:3500 &
+find Downloads -ctime +7 -delete
