@@ -13,4 +13,6 @@
 	p = push
 	psu = push --set-upstream
 	pl = pull
+	cl = clone
 	s = status
+	a = add
