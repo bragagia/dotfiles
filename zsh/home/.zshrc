@@ -148,6 +148,9 @@ alias postman='/usr/bin/chromium --profile-directory=Default --app-id=fhbjgbifli
 export PAGER=most
 export EDITOR=nvim
 export PATH=$PATH":/home/kanak/.bin/"
+export ANDROID_HOME=~/Android/Sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 zle -N wwd_zle
 bindkey '^W' wwd_zle
