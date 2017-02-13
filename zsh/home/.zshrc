@@ -152,6 +152,9 @@ export ANDROID_HOME=~/Android/Sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+export GOPATH=$HOME/Documents/goprojects
+export PATH=$PATH:$GOPATH/bin
+
 zle -N wwd_zle
 bindkey '^W' wwd_zle
 
