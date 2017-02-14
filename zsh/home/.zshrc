@@ -148,6 +148,8 @@ alias postman='/usr/bin/chromium --profile-directory=Default --app-id=fhbjgbifli
 export PAGER=most
 export EDITOR=nvim
 export PATH=$PATH":/home/kanak/.bin/"
+# Cordova
+export PATH=${PATH}:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools
 
 zle -N wwd_zle
 bindkey '^W' wwd_zle
