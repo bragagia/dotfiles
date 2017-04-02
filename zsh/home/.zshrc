@@ -1,3 +1,5 @@
+source /etc/profile
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/kanak/.oh-my-zsh
 
@@ -150,7 +152,6 @@ export EDITOR=nvim
 export PATH=$PATH":/home/kanak/.bin/"
 # Cordova
 export PATH=${PATH}:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools
-export ANDROID_HOME=~/Android/Sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 

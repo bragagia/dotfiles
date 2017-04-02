@@ -127,52 +127,62 @@ function! AdjustWindowHeight(minheight, maxheight)
 	exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
 
-"""""
-" Dein
-"""""
-
-filetype off
-
-set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-call dein#begin(expand('~/.config/nvim/dein'))
-
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('scrooloose/nerdtree')
-call dein#add('Xuyuanp/nerdtree-git-plugin')
-call dein#add('jistr/vim-nerdtree-tabs')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('Valloric/YouCompleteMe', {'build': './install.py --clang-completer --system-libclang --tern-completer'})
-call dein#add('Raimondi/delimitMate')
-call dein#add('easymotion/vim-easymotion')
-call dein#add('terryma/vim-multiple-cursors')
-call dein#add('jreybert/vimagit')
-call dein#add('airblade/vim-gitgutter')
-" Fugitive is required for Conflicted
-call dein#add('tpope/vim-fugitive')
-call dein#add('christoomey/vim-conflicted')
-call dein#add('scrooloose/nerdcommenter')
-call dein#add('jelera/vim-javascript-syntax')
-call dein#add('pangloss/vim-javascript')
-call dein#add('scrooloose/syntastic')
-"Plugin 'helino/vim-json'
-call dein#add('SirVer/ultisnips')
-call dein#add('honza/vim-snippets')
-call dein#add('mxw/vim-jsx')
-call dein#add('othree/jsdoc-syntax.vim')
-call dein#add('heavenshell/vim-jsdoc')
-call dein#add('djoshea/vim-autoread')
-call dein#add('severin-lemaignan/vim-minimap')
-call dein#add('ryanoasis/vim-devicons')
-call dein#add('chilicuil/vim-sprunge')
-call dein#add('Quramy/tsuquyomi')
-call dein#add('leafgarland/typescript-vim')
-call dein#add('dsimidzija/vim-nerdtree-ignore')
-
-call dein#end()
+" Autoindent
 filetype plugin indent on
+
+"""""
+" Plug
+"""""
+
+call plug#begin()
+
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Raimondi/delimitMate'
+Plug 'easymotion/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'jreybert/vimagit'
+Plug 'airblade/vim-gitgutter'
+" Fugitive is required for Conflicted
+Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-conflicted'
+Plug 'scrooloose/nerdcommenter'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/syntastic'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'mxw/vim-jsx'
+Plug 'othree/jsdoc-syntax.vim'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'djoshea/vim-autoread'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'ryanoasis/vim-devicons'
+Plug 'chilicuil/vim-sprunge'
+Plug 'leafgarland/typescript-vim'
+Plug 'dsimidzija/vim-nerdtree-ignore'
+
+" Syntax
+Plug 'HerringtonDarkholme/yats.vim'
+
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+ " JS
+ Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+ " TS
+ Plug 'mhartington/nvim-typescript'
+"Plugin 'helino/vim-json'
+"call dein#add('Quramy/tsuquyomi', {'build': 'make'})
+"call dein#add('Valloric/YouCompleteMe', {'build': './install.py --clang-completer --tern-completer'})
+
+call plug#end()
 
 """""
 " CtrlP
@@ -188,6 +198,12 @@ let g:ctrlp_custom_ignore = {
 			\ 'file': '\v(\.d|\.o|\.swp|\~)$',
 			\ 'link': 'some_bad_symbolic_links',
 			\ }
+
+"""""
+" Deoplete
+"""""
+
+let g:deoplete#enable_at_startup = 1
 
 """""
 " NerdTree

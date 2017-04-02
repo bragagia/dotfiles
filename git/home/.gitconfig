@@ -9,6 +9,7 @@
 	lg = !"git lg1"
 	co = checkout
 	b = branch
+	m = merge
 	c = commit
 	p = push
 	psu = push --set-upstream
