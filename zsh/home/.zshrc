@@ -135,13 +135,16 @@ alias reboot='systemctl reboot'
 alias suspend='systemctl suspend'
 alias ':q'='exit'
 
-#alias wwd=''
-
 alias co='docker-compose'
 alias cou='docker-compose up'
 alias cos='docker-compose start'
 alias cor='docker-compose restart'
 alias cop='docker-compose stop'
+
+alias dc='docker'
+alias dcsta='docker stop $(docker ps -aq)'
+alias dcrma='docker rm $(docker ps -aq)'
+
 alias sudo='sudo '
 alias pap='passeport'
 

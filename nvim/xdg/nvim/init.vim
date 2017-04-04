@@ -166,6 +166,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'chilicuil/vim-sprunge'
 Plug 'leafgarland/typescript-vim'
 Plug 'dsimidzija/vim-nerdtree-ignore'
+Plug 'ashisha/image.vim'
+Plug 'fatih/vim-go'
 
 " Syntax
 Plug 'HerringtonDarkholme/yats.vim'
@@ -178,6 +180,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
  " TS
  Plug 'mhartington/nvim-typescript'
+ " Go
+ Plug 'zchee/deoplete-go', { 'do': 'make'}
 "Plugin 'helino/vim-json'
 "call dein#add('Quramy/tsuquyomi', {'build': 'make'})
 "call dein#add('Valloric/YouCompleteMe', {'build': './install.py --clang-completer --tern-completer'})
