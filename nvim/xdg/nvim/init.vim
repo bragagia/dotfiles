@@ -26,6 +26,7 @@ set wildmode=list:longest,full
 " Indentation
 set autoindent
 filetype plugin on
+set expandtab
 set shiftwidth=2
 set tabstop=2
 
@@ -168,6 +169,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'dsimidzija/vim-nerdtree-ignore'
 Plug 'ashisha/image.vim'
 Plug 'fatih/vim-go'
+Plug 'mileszs/ack.vim'
 
 " Syntax
 Plug 'HerringtonDarkholme/yats.vim'
@@ -182,11 +184,26 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  Plug 'mhartington/nvim-typescript'
  " Go
  Plug 'zchee/deoplete-go', { 'do': 'make'}
+ " Ruby
+ Plug 'fishbullet/deoplete-ruby'
 "Plugin 'helino/vim-json'
 "call dein#add('Quramy/tsuquyomi', {'build': 'make'})
 "call dein#add('Valloric/YouCompleteMe', {'build': './install.py --clang-completer --tern-completer'})
 
 call plug#end()
+
+"""""
+" vim-monster
+"""""
+
+" Set async completion.
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+
+" deoplete.nvim
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+let g:deoplete#sources#omni#input_patterns = {
+\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+\}
 
 """""
 " CtrlP

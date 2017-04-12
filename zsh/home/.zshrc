@@ -158,8 +158,14 @@ export PATH=${PATH}:/Development/adt-bundle/sdk/platform-tools:/Development/adt-
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 export GOPATH=$HOME/Documents/goprojects
 export PATH=$PATH:$GOPATH/bin
+
+eval "$(nodenv init -)"
 
 zle -N wwd_zle
 bindkey '^W' wwd_zle

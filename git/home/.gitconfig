@@ -17,3 +17,5 @@
 	cl = clone
 	s = status
 	a = add
+  undo-commit = reset HEAD^
+  uc = undo-commit
