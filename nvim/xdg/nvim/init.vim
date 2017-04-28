@@ -170,6 +170,8 @@ Plug 'dsimidzija/vim-nerdtree-ignore'
 Plug 'ashisha/image.vim'
 Plug 'fatih/vim-go'
 Plug 'mileszs/ack.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mustache/vim-mustache-handlebars'
 
 " Syntax
 Plug 'HerringtonDarkholme/yats.vim'
@@ -204,6 +206,12 @@ let g:monster#completion#rcodetools#backend = "async_rct_complete"
 let g:deoplete#sources#omni#input_patterns = {
 \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
 \}
+
+"""""
+" Vim-go
+"""""
+
+let g:go_fmt_command = "goimports"
 
 """""
 " CtrlP
