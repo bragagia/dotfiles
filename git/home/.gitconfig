@@ -18,4 +18,6 @@
 	s = status
 	a = add
   undo-commit = reset HEAD^
-  uc = undo-commit
+  uc = reset HEAD^
+  d = diff
+  rb = rebase

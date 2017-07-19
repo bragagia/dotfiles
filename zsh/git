@@ -1,1 +1,2 @@
 __home__/.oh-my-zsh git://github.com/robbyrussell/oh-my-zsh.git
+__home__/.oh-my-zsh/custom/plugins/zsh-autosuggestions git://github.com/zsh-users/zsh-autosuggestions.git 

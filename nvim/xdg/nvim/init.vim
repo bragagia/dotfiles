@@ -1,5 +1,8 @@
 "set nocompatible
 
+" Enable mouse
+set mouse=a
+
 " Line number
 set number
 
@@ -12,6 +15,9 @@ set backspace=indent,eol,start
 
 " Highlight current line
 set cursorline
+
+" Bugfix for scroll lag
+set lazyredraw
 
 " Allow buffers to be hidden
 set hidden
@@ -67,7 +73,7 @@ set scrolloff=5
 
 " Display tab and insecable space
 "set listchars=tab:··,nbsp:#
-set listchars=tab:··
+set listchars=tab:\¦·,trail:·
 set list
 
 " Live display command you are typing
@@ -155,14 +161,14 @@ Plug 'christoomey/vim-conflicted'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mxw/vim-jsx'
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'djoshea/vim-autoread'
-Plug 'severin-lemaignan/vim-minimap'
+" Plug 'severin-lemaignan/vim-minimap'
 Plug 'ryanoasis/vim-devicons'
 Plug 'chilicuil/vim-sprunge'
 Plug 'leafgarland/typescript-vim'
@@ -172,6 +178,8 @@ Plug 'fatih/vim-go'
 Plug 'mileszs/ack.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'neomake/neomake'
+Plug 'guns/xterm-color-table.vim'
 
 " Syntax
 Plug 'HerringtonDarkholme/yats.vim'
@@ -179,9 +187,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  " JS
- Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
- Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
- Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+ "Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+ Plug 'carlitux/deoplete-ternjs' ", { 'for': ['javascript', 'javascript.jsx'] }
+ Plug 'othree/jspc.vim' ", { 'for': ['javascript', 'javascript.jsx'] }
  " TS
  Plug 'mhartington/nvim-typescript'
  " Go
@@ -193,6 +201,37 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "call dein#add('Valloric/YouCompleteMe', {'build': './install.py --clang-completer --tern-completer'})
 
 call plug#end()
+
+"""""
+" Neomake
+"""""
+
+autocmd! BufWritePost * Neomake
+
+let b:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
+let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
+let g:neomake_go_gometalinter_maker = {
+  \ 'args': [
+  \   '--tests',
+  \   '--enable-gc',
+  \   '--concurrency=3',
+  \   '--fast',
+  \   '-D', 'aligncheck',
+  \   '-D', 'dupl',
+  \   '-D', 'gocyclo',
+  \   '-D', 'gotype',
+  \   '-E', 'errcheck',
+  \   '-E', 'misspell',
+  \   '-E', 'unused',
+  \   '%:p:h',
+  \ ],
+  \ 'append_file': 0,
+  \ 'errorformat':
+  \   '%E%f:%l:%c:%trror: %m,' .
+  \   '%W%f:%l:%c:%tarning: %m,' .
+  \   '%E%f:%l::%trror: %m,' .
+  \   '%W%f:%l::%tarning: %m'
+  \ }
 
 """""
 " vim-monster
@@ -233,6 +272,17 @@ let g:ctrlp_custom_ignore = {
 """""
 
 let g:deoplete#enable_at_startup = 1
+
+" Use deoplete.
+let g:tern_request_timeout = 1
+"let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+
+let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ '...'
+                \ ]
 
 """""
 " NerdTree
@@ -434,4 +484,4 @@ let g:UltiSnipsExpandTrigger = "<C-T>"
 " DevIcons
 """""
 
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''

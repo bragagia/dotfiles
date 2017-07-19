@@ -51,7 +51,7 @@ ZSH_THEME="my-murilasso"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker compleat encode64 gitfast git-flow npm sprunge sudo wd zsh-completions)
+plugins=(git docker compleat encode64 gitfast git-flow npm sprunge sudo wd zsh-completions zsh-autosuggestions autojump)
 autoload -U compinit && compinit
 
 zstyle ':completion:*' rehash true
@@ -125,7 +125,7 @@ alias ne='emacs -nw'
 alias cc='gcc -fmax-errors=8 -Wall -Wextra -ansi -pedantic -Wno-long-long -Og -g'
 alias gpp="g++ -Wfatal-errors -Werror -Wall -Wextra -g"
 alias wee='weechat-curses'
-alias blih='blih -u bragag_m'
+alias blih='blih -u mathias.bragagia@epitech.eu'
 alias uppity='uppity -X -n kanak'
 alias v="nvim"
 alias tree="tree -C"
@@ -166,8 +166,6 @@ fi
 
 export GOPATH=$HOME/Documents/goprojects
 export PATH=$PATH:$GOPATH/bin
-
-eval "$(nodenv init -)"
 
 zle -N wwd_zle
 bindkey '^W' wwd_zle
