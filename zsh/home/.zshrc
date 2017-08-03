@@ -90,37 +90,39 @@ source $ZSH/oh-my-zsh.sh
 
 wwd()
 {
-	cd `cat ~/.wd`
+  cd `cat ~/.wd`
 }
 
 wwd_zle()
 {
-	wwd
-	zle reset-prompt
+  wwd
+  zle reset-prompt
 }
 
 swd()
 {
-	echo -n "$PWD" > ~/.wd
+  echo -n "$PWD" > ~/.wd
 }
 
 swd_zle()
 {
-	swd
-	zle reset-prompt
+  swd
+  zle reset-prompt
 }
 
 cd_zle()
 {
-	cd
-	zle reset-prompt
+  cd
+  zle reset-prompt
 }
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias l="ls --color=auto --group-directories-first -lhB --hide='*.[od]'"
-alias ll='ls --color=auto --group-directories-first -lah'
+alias  l="exa --group-directories-first --git -lbg --ignore-glob='*.[od]'"
+alias lt="exa --group-directories-first --git -lbg --ignore-glob='*.[od]|vendor|node_modules' -T"
+alias ll='exa --group-directories-first --git -lbgaa'
+alias la='getfattr -dR'
 alias ne='emacs -nw'
 alias cc='gcc -fmax-errors=8 -Wall -Wextra -ansi -pedantic -Wno-long-long -Og -g'
 alias gpp="g++ -Wfatal-errors -Werror -Wall -Wextra -g"
@@ -149,8 +151,6 @@ alias dcrma='docker rm $(docker ps -aq)'
 alias sudo='sudo '
 alias pap='passeport'
 
-alias postman='/usr/bin/chromium --profile-directory=Default --app-id=fhbjgbiflinjbdggehcddcbncdddomop'
-
 export PAGER=most
 export EDITOR=nvim
 export PATH=$PATH":/home/kanak/.bin/"
@@ -162,7 +162,7 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 source $HOME/.scalingo
 
 if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+  export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 export GOPATH=$HOME/Documents/goprojects
