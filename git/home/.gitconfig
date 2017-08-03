@@ -13,6 +13,7 @@
 	c = commit
 	p = push
 	psu = push --set-upstream
+  psua = "!remote=${1}; if [ -z \"${1+x}\" ]; then remote=origin; fi; git push --set-upstream \"${remote}\" `git rev-parse --abbrev-ref HEAD` #"
 	pl = pull
 	cl = clone
 	s = status

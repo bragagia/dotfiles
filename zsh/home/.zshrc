@@ -129,6 +129,7 @@ alias blih='blih -u mathias.bragagia@epitech.eu'
 alias uppity='uppity -X -n kanak'
 alias v="nvim"
 alias tree="tree -C"
+alias ssh="TERM=xterm ssh"
 
 alias halt='systemctl poweroff'
 alias reboot='systemctl reboot'

@@ -1,0 +1,15 @@
+#!/bin/python
+
+import json
+import requests
+
+endpoint_url = 'https://api.coinbase.com/v2/exchange-rates'
+currency = 'ETH'
+exchange = 'EUR'
+exchange_symbol = '€'
+
+url = endpoint_url + '?currency=' + currency
+
+ethereum = json.loads(requests.get(url).text)['data']
+
+print(ethereum['rates'][exchange], exchange_symbol);
