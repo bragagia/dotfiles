@@ -161,9 +161,9 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 #Scalingo
 source $HOME/.scalingo
 
-if which ruby >/dev/null && which gem >/dev/null; then
-  export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
+#if which ruby >/dev/null && which gem >/dev/null; then
+#  export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+#fi
 
 export GOPATH=$HOME/Documents/goprojects
 export PATH=$PATH:$GOPATH/bin

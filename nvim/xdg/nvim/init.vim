@@ -183,6 +183,7 @@ Plug 'guns/xterm-color-table.vim'
 
 " Syntax
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'posva/vim-vue'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -251,6 +252,28 @@ let g:deoplete#sources#omni#input_patterns = {
 """""
 
 let g:go_fmt_command = "goimports"
+
+"""""
+" Vim Multiple Cursor
+"""""
+
+" Disable Deoplete when selecting multiple cursors starts
+function! Multiple_cursors_before()
+    if exists('*deoplete#disable')
+        exe 'call deoplete#disable()'
+    elseif exists(':NeoCompleteLock') == 2
+        exe 'NeoCompleteLock'
+    endif
+endfunction
+
+" Enable Deoplete when selecting multiple cursors ends
+function! Multiple_cursors_after()
+    if exists('*deoplete#enable')
+        exe 'call deoplete#enable()'
+    elseif exists(':NeoCompleteUnlock') == 2
+        exe 'NeoCompleteUnlock'
+    endif
+endfunction
 
 """""
 " CtrlP

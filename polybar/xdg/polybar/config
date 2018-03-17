@@ -13,10 +13,8 @@ red = #db3f3f
 blue = #95aec7
 yellow = #c7ae95
 green = #aec795
-background = #111313
-background-alt = #111313
+background = #e6141414
 foreground = #f9f5d7
-foreground-alt = #f9f5d7
 primary = #111313
 secondary = #d79921
 alert = #db2f2f
@@ -31,9 +29,14 @@ height = 30
 offset-x = 
 offset-y = 
 
-#border-left-size = 6
-#border-right-size = 6
-#border-top-size = 7
+border-top-size = 6
+border-left-size = 16
+border-right-size = 16
+border-bottom-size = 1
+border-top-color = ${colors.background}
+border-left-color = ${colors.background}
+border-right-color = ${colors.background}
+border-bottom-color = ${colors.background}
 
 padding-left = 0
 padding-right = 0
@@ -41,10 +44,9 @@ padding-right = 0
 module-margin-right = 1
 module-margin-left = 1
 
-#modules-right = cpu memory temperature filesystem wlan backlight volume battery date
-modules-right = pkg backlight volume battery currency weather date
+modules-left = menu0 vpncheck cur-xbt cur-eth cur-ltc weather pkg wintitle
 modules-center = i3
-modules-left = vpncheck eth wlan filesystem temperature memory cpu
+modules-right = backlight pavolume temperature memory cpu bluetooth eth wlan battery date
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -52,12 +54,12 @@ foreground = ${colors.foreground}
 underline-size = 3
 underline-color = ${colors.orange}
 
-tray-detached = false
-tray-position = right
-tray-offset-x = 0
-tray-offset-y = 0
-tray-maxsize = 16
-tray-padding = 0
+#tray-detached = false
+#tray-position = right
+#tray-offset-x = 0
+#tray-offset-y = 0
+#tray-maxsize = 16
+#tray-padding = 0
 
 font-0 = "FontAwesome:size=15;0"
 font-1 = "Inconsolata for Powerline:size=15;0"
@@ -99,13 +101,12 @@ label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 [module/backlight]
-type = internal/backlight
-card = intel_backlight
+type = internal/xbacklight
 
 format = <label>
 format-padding = 1
 format-underline = ${colors.orange}
-label =  %percentage%%
+label =  %percentage%
 
 bar-width = 6
 bar-indicator = 
@@ -120,7 +121,7 @@ bar-empty-foreground = #282a2e
 
 [module/date]
 type = internal/date
-date =  %A %d %b  %H:%M
+date = %A %d %b  %H:%M
 interval = 5
 format-underline = #B8BB26
 format-foreground = ${colors.foreground}
@@ -135,9 +136,9 @@ label-muted-padding = 1
 
 format-volume-underline = ${colors.orange}
 
-label-volume = %percentage%%
+label-volume = %percentage%
 
-label-muted =  mut
+label-muted =  
 label-muted-underline = ${colors.orange}
 
 ramp-volume-0 = 
@@ -148,31 +149,32 @@ ramp-volume-2 = 
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 96
-interval = 10
+full-at = 100
+interval = 1
 
 format-charging = <animation-charging> <label-charging>
-label-charging = %percentage%%
+label-charging = %percentage%↑
 format-charging-underline = ${colors.orange}
 format-charging-padding = 1
 
 time-format = %H:%M
 #label-discharging = %percentage%% - %time%
-label-discharging = %percentage%%
+label-discharging = %percentage%↓
 format-discharging = <ramp-capacity> <label-discharging> 
 format-discharging-underline = ${colors.orange}
 format-discharging-padding = 1
 
-label-full = %percentage%%
+label-full = %percentage%↑
 format-full = <ramp-capacity> <label-full>
 format-full-underline = ${self.format-charging-underline}
 format-full-overline = ${self.format-charging-underline}
 format-full-padding = 1
 
 ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.foreground}
 
 animation-charging-0 = 
@@ -223,7 +225,7 @@ ramp-coreload-underline = ${colors.orange}
 
 type = internal/cpu
 interval = 2
-label = %{F${colors.white} %percentage%%  
+label = %{F${colors.white} %percentage%  
 label-underline = ${colors.orange}
 label-padding = 1
 
@@ -231,9 +233,9 @@ label-padding = 1
 type = internal/memory
 interval = 2
 
-label = %{F${colors.white} %percentage_used%%
+label =  %percentage_used%
 label-underline = ${colors.orange}
-label-foreground = ${colors.orange}
+label-foreground = ${colors.white}
 label-padding = 1
 
 [module/vpncheck]
@@ -248,7 +250,7 @@ format-prefix-foreground = #5b
 [module/wlan]
 type = internal/network
 interface = wlp2s0
-interval = 5
+interval = 1
 
 format-connected-padding = 1
 format-disconnected-padding = 0
@@ -257,10 +259,9 @@ format-connected = <label-connected>
 format-connected-underline = #458588
 format-disconnected-underline = ${colors.gray}
 
-label-connected = %essid%
-label-disconnected =
+label-connected = %{A1:~/.config/polybar/wifi.sh:} %essid%%{A}
+label-disconnected =  
 label-disconnected-foreground = ${colors.gray}
-
 
 [module/eth]
 type = internal/network
@@ -274,7 +275,7 @@ format-connected-underline = #458588
 format-disconnected-underline = ${colors.gray}
 
 label-connected =  %linkspeed%
-label-disconnected = 
+label-disconnected =  
 label-disconnected-foreground = ${colors.white}
 
 
@@ -298,15 +299,15 @@ format = <label-toggle>
 format-underline = ${colors.orange}
 format-padding = 1
 
-label-open =   
+label-open = 
 
 [module/pkg]
 type = custom/script
-interval = 1200
+interval = 30
 format = <label>
 format-underline = #dc322f
-label = "%output:0:30%"
-exec = .config/polybar/pkg.sh
+label = "%output%"
+exec = ~/.config/polybar/pkg.sh
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 
 [module/weather]
@@ -317,10 +318,55 @@ format-prefix = " "
 format-underline = #B8BB26
 exec = ~/.config/polybar/weather
 
-[module/currency]
+[module/bluetooth]
 type = custom/script
 interval = 10
 format = <label>
 format-underline = #B8BB26
+exec = ~/.config/polybar/bluetooth.sh
+click-left = ~/.config/polybar/bluetooth-launch.sh
+
+[module/cur-xbt]
+type = custom/script
+interval = 30
+format = <label>
+format-underline = ${colors.blue}
 format-prefix = " "
-exec = ~/.config/polybar/currency
+exec = ~/.config/polybar/currency.sh XBT
+
+[module/cur-eth]
+type = custom/script
+interval = 30
+format = <label>
+format-underline = ${colors.orange}
+format-prefix = " "
+exec = ~/.config/polybar/currency.sh ETH
+
+[module/cur-ltc]
+type = custom/script
+interval = 30
+format = <label>
+format-underline = ${colors.red}
+format-prefix = " "
+exec = ~/.config/polybar/currency.sh LTC
+
+[module/wintitle]
+type = internal/xwindow
+
+format-underline = #B8BB26
+
+label = %title%
+label-maxlen = 50
+
+[module/pavolume]
+type = custom/script
+
+label = %output%
+format-underline = ${colors.orange}
+
+tail = true
+exec = pavolume --listen
+click-right = exec pavucontrol
+click-left = pavolume --togmute
+scroll-up = pavolume --up
+scroll-down = pavolume --down
