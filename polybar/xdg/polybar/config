@@ -81,10 +81,10 @@ enable-click = true
 
 label-mode-padding = 1
 label-mode-foreground = #db3f3f
-label-mode-background = ${colors.primary}
+label-mode-background = 
 
 label-focused = %name%
-label-focused-background =${colors.primary}
+label-focused-background = 
 label-focused-underline = #DC322F
 label-focused-padding = 1
 

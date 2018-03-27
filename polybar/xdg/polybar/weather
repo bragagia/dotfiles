@@ -13,7 +13,8 @@ try:
     info = weather["weather"][0]["description"].capitalize()
     temp = int(float(weather["main"]["temp"]))
 
-    print("%s, %i°%s" % (info, temp, unit_key))
+    #print("%s, %i°%s" % (info, temp, unit_key))
+    print("%i°%s" % (temp, unit_key))
 
 except:
     print("")
