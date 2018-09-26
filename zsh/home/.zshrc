@@ -167,7 +167,7 @@ export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 #Scalingo
 
-if ! [ -f $HOME/.scalingo ] ; then
+if [ -f $HOME/.scalingo ] ; then
   source $HOME/.scalingo
 fi
 
