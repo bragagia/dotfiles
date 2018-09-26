@@ -120,7 +120,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-if which exa ; then
+if which exa > /dev/null 2> /dev/null ; then
   LS="exa"
 else
   LS="ls"
@@ -167,7 +167,7 @@ export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 #Scalingo
 
-if [ -f $HOME/.scalingo ] ; then
+if ! [ -f $HOME/.scalingo ] ; then
   source $HOME/.scalingo
 fi
 
