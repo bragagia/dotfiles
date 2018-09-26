@@ -119,9 +119,16 @@ cd_zle()
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias  l="exa --group-directories-first --git -lbg --ignore-glob='*.[od]'"
-alias lt="exa --group-directories-first --git -lbg --ignore-glob='*.[od]|vendor|node_modules' -T"
-alias ll='exa --group-directories-first --git -lbgaa'
+
+if which exa ; then
+  LS="exa"
+else
+  LS="ls"
+fi
+
+alias  l="$LS --group-directories-first --git -lbg --ignore-glob='*.[od]'"
+alias lt="$LS --group-directories-first --git -lbg --ignore-glob='*.[od]|vendor|node_modules' -T"
+alias ll='$LS --group-directories-first --git -lbgaa'
 alias la='getfattr -dR'
 alias ne='emacs -nw'
 alias cc='gcc -fmax-errors=8 -Wall -Wextra -ansi -pedantic -Wno-long-long -Og -g'
@@ -159,7 +166,10 @@ export PATH=${PATH}:/Development/adt-bundle/sdk/platform-tools:/Development/adt-
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 #Scalingo
-source $HOME/.scalingo
+
+if [ -f $HOME/.scalingo ] ; then
+  source $HOME/.scalingo
+fi
 
 #if which ruby >/dev/null && which gem >/dev/null; then
 #  export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
