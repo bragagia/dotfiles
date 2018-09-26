@@ -85,7 +85,7 @@ label-mode-background =
 
 label-focused = %name%
 label-focused-background = 
-label-focused-underline = #DC322F
+label-focused-underline = ${colors.orange}
 label-focused-padding = 1
 
 label-unfocused = %name%
@@ -105,7 +105,7 @@ type = internal/xbacklight
 
 format = <label>
 format-padding = 1
-format-underline = ${colors.orange}
+format-underline = ${colors.green}
 label =  %percentage%
 
 bar-width = 6
@@ -134,7 +134,7 @@ format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
 label-muted-padding = 1
 
-format-volume-underline = ${colors.orange}
+format-volume-underline = ${colors.blue}
 
 label-volume = %percentage%
 
@@ -256,11 +256,11 @@ format-connected-padding = 1
 format-disconnected-padding = 0
 
 format-connected = <label-connected>
-format-connected-underline = #458588
+format-connected-underline = ${colors.blue}
 format-disconnected-underline = ${colors.gray}
 
 label-connected = %{A1:~/.config/polybar/wifi.sh:} %essid%%{A}
-label-disconnected =  
+label-disconnected = %{A1:~/.config/polybar/wifi.sh:} %{A}
 label-disconnected-foreground = ${colors.gray}
 
 [module/eth]
@@ -362,7 +362,7 @@ label-maxlen = 50
 type = custom/script
 
 label = %output%
-format-underline = ${colors.orange}
+format-underline = ${colors.blue}
 
 tail = true
 exec = pavolume --listen
