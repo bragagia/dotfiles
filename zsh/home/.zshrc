@@ -58,7 +58,7 @@ zstyle ':completion:*' rehash true
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/kanak/.bin:/home/kanak/.bin/"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -153,7 +153,7 @@ alias pap='passeport'
 
 export PAGER=most
 export EDITOR=nvim
-export PATH=$PATH":/home/kanak/.bin/"
+export PATH=$PATH":$HOME/.bin/"
 # Cordova
 export PATH=${PATH}:/Development/adt-bundle/sdk/platform-tools:/Development/adt-bundle/sdk/tools
 export PATH=${PATH}:${ANDROID_HOME}/tools
