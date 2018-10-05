@@ -126,8 +126,8 @@ else
   LS="ls --color=auto"
 fi
 
-alias  l="$LS --group-directories-first -lbg --ignore-glob='*.[od]'"
-alias lt="$LS --group-directories-first -lbg --ignore-glob='*.[od]|vendor|node_modules' -T"
+alias  l="$LS --group-directories-first -lbg"
+alias lt="$LS --group-directories-first -lbg --ignore-glob='vendor|node_modules' -T"
 alias ll="$LS --group-directories-first -lbgaa"
 alias la='getfattr -dR'
 alias ne='emacs -nw'
