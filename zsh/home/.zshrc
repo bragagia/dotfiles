@@ -121,14 +121,14 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 if which exa > /dev/null 2> /dev/null ; then
-  LS="exa"
+  LS="exa --git"
 else
   LS="ls"
 fi
 
-alias  l="$LS --group-directories-first --git -lbg --ignore-glob='*.[od]'"
-alias lt="$LS --group-directories-first --git -lbg --ignore-glob='*.[od]|vendor|node_modules' -T"
-alias ll='$LS --group-directories-first --git -lbgaa'
+alias  l="$LS --group-directories-first -lbg --ignore-glob='*.[od]'"
+alias lt="$LS --group-directories-first -lbg --ignore-glob='*.[od]|vendor|node_modules' -T"
+alias ll='$LS --group-directories-first -lbgaa'
 alias la='getfattr -dR'
 alias ne='emacs -nw'
 alias cc='gcc -fmax-errors=8 -Wall -Wextra -ansi -pedantic -Wno-long-long -Og -g'

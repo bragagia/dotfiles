@@ -44,7 +44,7 @@ padding-right = 0
 module-margin-right = 1
 module-margin-left = 1
 
-modules-left = menu0 vpncheck cur-xbt cur-eth cur-ltc weather pkg wintitle
+modules-left = menu0 vpncheck weather pkg wintitle
 modules-center = i3
 modules-right = backlight pavolume temperature memory cpu bluetooth eth wlan battery date
 
@@ -61,8 +61,9 @@ underline-color = ${colors.orange}
 #tray-maxsize = 16
 #tray-padding = 0
 
-font-0 = "FontAwesome:size=15;0"
-font-1 = "Inconsolata for Powerline:size=15;0"
+font-0 = "FontAwesome:size=15"
+font-1 = "Inconsolata for Powerline:size=15"
+font-2 = "DejaVu Sans:size=15"
 
 [module/xwindow]
 type = internal/xwindow
@@ -111,12 +112,9 @@ label =  %percentage%
 bar-width = 6
 bar-indicator = 
 bar-indicator-foreground = ${colors.white}
-bar-indicator-font = 2
 bar-fill = 
-bar-fill-font = 2
 bar-fill-foreground = ${colors.white}
 bar-empty = 
-bar-empty-font = 2
 bar-empty-foreground = #282a2e
 
 [module/date]
@@ -153,7 +151,7 @@ full-at = 100
 interval = 1
 
 format-charging = <animation-charging> <label-charging>
-label-charging = %percentage%↑
+label-charging = "%percentage%↑"
 format-charging-underline = ${colors.orange}
 format-charging-padding = 1
 
@@ -199,8 +197,8 @@ format-warn-underline = ${colors.red}
 format-padding = 1
 format-warn-padding = 1
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 
 ramp-0 = 
 ramp-1 = 

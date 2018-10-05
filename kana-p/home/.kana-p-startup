@@ -3,9 +3,9 @@
 xmodmap ~/.swapper
 
 #Strasbourg
-#GPS=48.573392:7.752353
+GPS=48.573392:7.752353
 #Quebec
-GPS=46.8033:-71.2428
+#GPS=46.8033:-71.2428
 redshift -l "${GPS}" -t 6500:3900 -b 1.0:0.8 &
 
 find Downloads -ctime +7 -delete
