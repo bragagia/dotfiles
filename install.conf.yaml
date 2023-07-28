@@ -1,0 +1,24 @@
+- clean: ['~']
+
+# ZSH
+- git:
+    '~/.oh-my-zsh':
+        url: 'ssh://github.com/robbyrussell/oh-my-zsh.git'
+    '~/.oh-my-zsh/custom/plugins/zsh-autosuggestions':
+        url: 'ssh://github.com/zsh-users/zsh-autosuggestions.git'
+- link:
+    ~/.zshrc: zsh/zshrc
+    ~/.oh-my-zsh/custom/themes/my-murilasso.zsh-theme: zsh/my-murilasso.zsh-theme
+
+# GIT
+- link:
+    ~/.gitconfig: git/gitconfig
+
+# NVIM
+- link:
+    ~/.config/nvim:
+        path: nvim
+
+# ITERM2
+- link:
+    ~/Library/Preferences/com.googlecode.iterm2.plist: iterm2/config

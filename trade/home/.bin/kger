@@ -1,7 +1,0 @@
-#!/bin/sh
-pair=${1}
-curl https://api.kraken.com/0/public/Ticker \
-    -H "Accept: application/json" -H "Content-Type: application/json" \
-    -d '{"pair": "'${pair}'"}' 2> /dev/null |
-  jq -r '."result"."'${pair}'"."c"[0]' 2> /dev/null |
-  xargs printf "%.2f\n"

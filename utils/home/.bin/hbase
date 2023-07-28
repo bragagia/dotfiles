@@ -1,3 +1,0 @@
-url=`cat ~/.hurl`${1}
-shift
-curl -s -H "Content-Type:application/json" ${url} $* | js-beautify -f -

@@ -51,8 +51,11 @@ ZSH_THEME="my-murilasso"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker compleat encode64 gitfast git-flow npm sprunge sudo wd zsh-completions zsh-autosuggestions autojump)
-autoload -U compinit && compinit
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+plugins=(git docker compleat encode64 gitfast git-flow npm sprunge sudo wd zsh-autosuggestions autojump)
+autoload -Uz compinit && compinit
 
 zstyle ':completion:*' rehash true
 
@@ -186,3 +189,14 @@ bindkey '^S' swd_zle
 
 zle -N cd_zle
 bindkey '^X' cd_zle
+
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+export PATH="/opt/homebrew/bin:$PATH"
+
+
+# RBENV
+eval "$(rbenv init - zsh)"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
