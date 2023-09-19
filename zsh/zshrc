@@ -200,3 +200,5 @@ export PATH="/opt/homebrew/bin:$PATH"
 # RBENV
 eval "$(rbenv init - zsh)"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+export GEM_HOME="$HOME/.gem"
