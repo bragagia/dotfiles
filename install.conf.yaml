@@ -2,43 +2,60 @@
 
 # ZSH
 - git:
-      "~/.oh-my-zsh":
-          url: "ssh://github.com/robbyrussell/oh-my-zsh.git"
-      "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions":
-          url: "ssh://github.com/zsh-users/zsh-autosuggestions.git"
+    "~/.oh-my-zsh":
+      url: "https://github.com/robbyrussell/oh-my-zsh.git"
+    "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions":
+      url: "https://github.com/zsh-users/zsh-autosuggestions.git"
 - link:
-      ~/.zshrc: zsh/zshrc
-      ~/.oh-my-zsh/custom/themes/my-murilasso.zsh-theme: zsh/my-murilasso.zsh-theme
+    ~/.zshrc: zsh/zshrc
+    ~/.oh-my-zsh/custom/themes/my-murilasso.zsh-theme: zsh/my-murilasso.zsh-theme
 - brew:
-      - zsh
-      - zsh-completions
-      - most
-      - exa
-      - autojump
+    - zsh
+    - zsh-completions
+    - most
+    - eza
+    - autojump
 
 # GIT
 - link:
-      ~/.gitconfig: git/gitconfig
+    ~/.gitconfig: git/gitconfig
 
 # NVIM
 - brew:
-      - neovim
+    - neovim
 - link:
-      ~/.config/nvim:
-          path: nvim
+    ~/.config/nvim:
+      path: nvim
 
 # ITERM2
 - link:
-      ~/Library/Preferences/com.googlecode.iterm2.plist: iterm2/config
+    ~/Library/Preferences/com.googlecode.iterm2.plist: iterm2/config
 
 # OTHERS
 - brew:
-      - curl
-      - git
-      - go
-      - hadolint # Dockerfile linter
-      - jq
-      - libpq
-      - yarn
-      - rbenv
-      - node
+    - curl
+    - git
+    - go
+    - hadolint # Dockerfile linter
+    - jq
+    - libpq
+    - yarn
+    - rbenv
+    - node
+
+# MACOS:
+- cask:
+    - visual-studio-code
+    - iterm2
+    - swish
+    - betterdisplay
+    - vlc
+    - docker
+    - notion
+    - spotify
+    - zen
+    - google-chrome
+    - font-jetbrains-mono
+    - rocket
+    - 1password
+    - jordanbaird-ice

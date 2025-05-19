@@ -123,8 +123,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-if which exa > /dev/null 2> /dev/null ; then
-  LS="exa --git"
+if which eza > /dev/null 2> /dev/null ; then
+  LS="eza --git"
 else
   LS="ls --color=auto"
 fi
