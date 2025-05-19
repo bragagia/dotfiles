@@ -1,5 +1,8 @@
 - clean: ["~"]
 
+- shell:
+    - [mkdir -p ~/.config;, Create .config folder]
+
 # ZSH
 - git:
     "~/.oh-my-zsh":
@@ -23,6 +26,7 @@
 # NVIM
 - brew:
     - neovim
+
 - link:
     ~/.config/nvim:
       path: nvim
@@ -44,6 +48,12 @@
     - node
 
 # MACOS:
+- shell:
+    - [
+        defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock;,
+        Remove MacOS Dock delay,
+      ]
+
 - cask:
     - visual-studio-code
     - iterm2
@@ -59,3 +69,21 @@
     - rocket
     - 1password
     - jordanbaird-ice
+    - bluesnooze
+
+- shell:
+    - [
+        open -gj -a /Applications/Visual\ Studio\ Code.app;,
+        Open Visual Studio Code,
+      ]
+    - [open -gj -a /Applications/iTerm.app;, Open iTerm]
+    - [open -gj -a /Applications/Swish.app;, Open Swish]
+    - [open -gj -a /Applications/BetterDisplay.app;, Open BetterDisplay]
+    - [open -gj -a /Applications/Docker.app;, Open Docker]
+    - [open -gj -a /Applications/Notion.app;, Open Notion]
+    - [open -gj -a /Applications/Spotify.app;, Open Spotify]
+    - [open -gj -a /Applications/Zen.app;, Open Zen]
+    - [open -gj -a /Applications/Rocket.app;, Open Rocket]
+    - [open -gj -a /Applications/1Password.app;, Open 1Password]
+    - [open -gj -a /Applications/Ice.app;, Open Ice]
+    - [open -gj -a /Applications/Bluesnooze.app;, Open Bluesnooze]
